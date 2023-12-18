@@ -35,7 +35,6 @@ export default function Registration() {
             console.log("invalid"+fname)
         }
     }
-
     return (
     <div>
     <img src={image}/>
