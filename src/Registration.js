@@ -25,16 +25,15 @@ export default function Registration() {
                toast.error('failed:'+err.message)
         })
     }
-    
-    const fnamehandle=(e)=>{
-        e=fnamechange(e.target.value)
-        // const lent=2
-        if(fname.length>=2) {
-            console.log("valid")
-        }else{
-            console.log("invalid"+fname)
-        }
-    }
+
+    const validateEmail = (email) => {
+      return String(email)
+        .toLowerCase()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+    };
+
     return (
     <div>
     <img src={image}/>
@@ -42,27 +41,27 @@ export default function Registration() {
       <form className="row g-3" >
         <div className="col-md-6">
           <label for="inputEmail4" className="form-label">First Name</label>
-          <input type="text" className="form-control" value={fname} onChange={fnamehandle}></input>
+          <input type="text" className="form-control" value={fname} onChange={(e)=>fnamechange(e.target.value)}></input><p className={fname.length<2?'invalid':'invalid-hide'}>*Invalid First Name</p>
         </div>
         <div className="col-md-6">
           <label for="inputEmail4" className="form-label">Last Name</label>
-          <input type="text" className="form-control" value={lname} onChange={e=>lnamechange(e.target.value)}></input>
+          <input type="text" className="form-control" value={lname} onChange={(e)=>lnamechange(e.target.value)}></input><p className={lname.length<2?'invalid':'invalid-hide'}>*Invalid Last Name</p>
         </div>
         <div className="col-md-6">
           <label for="inputEmail4" className="form-label">Phone No.</label>
-          <input type="number" className="form-control" value={phoneno} onChange={e=>phonenochange(e.target.value)}></input>
+          <input type="number" className="form-control" value={phoneno} onChange={(e)=>phonenochange(e.target.value)}></input><p className={phoneno.length!=10?'invalid':'invalid-hide'}>*Invalid Phone Number</p>
         </div>
         <div className="col-md-6">
           <label for="inputEmail4" className="form-label">Email</label>
-          <input type="email" className="form-control" value={email} onChange={e=>emailchange(e.target.value)}></input>
+          <input type="email" className="form-control" value={email} onChange={(e)=>emailchange(e.target.value)}></input><p className={validateEmail(email)?'invalid-hide':'invalid'}>*Invalid Email</p>
         </div>
         <div className="col-md-6">
           <label for="inputPassword4" className="form-label">Password</label>
-          <input type="password" className="form-control" value={password} onChange={e=>passwordchange(e.target.value)}></input>
+          <input type="password" className="form-control" value={password} onChange={(e)=>passwordchange(e.target.value)}></input><p className={fname.length<2?'invalid':'invalid-hide'}>*Invalid Password</p>
         </div>
         <div className="col-md-6">
           <label for="inputEmail4" className="form-label">Confirm Password</label>
-          <input type="password" className="form-control" value={confirmpassword} onChange={e=>confirmpasswordchange(e.target.value)}></input>
+          <input type="password" className="form-control" value={confirmpassword} onChange={(e)=>confirmpasswordchange(e.target.value)}></input><p className={fname.length<2?'invalid':'invalid-hide'}>*Password Does not match</p>
         </div>
         <div className="col-12">
           <button type="submit" className="btn btn-primary" onClick={handleregistration}>Sign up</button>

@@ -110,3 +110,13 @@ img{
   bottom: 20.5%;
   right: 10%;
 }
+
+.invalid{
+  font-size:xx-small;
+  color: red;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+.invalid-hide{
+  display: none;
+}
