@@ -34,6 +34,23 @@ export default function Registration() {
         );
     };
 
+    const validatePassword=(password)=>{
+      var uppercase=/[A-Z]/g
+      var lowerCase=/[a-z]/g
+      var number=/[0-9]/g
+      var specialChar=/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/
+        if(password.length>=8 && password.match(lowerCase) && password.match(uppercase) && password.match(number) && password.match(specialChar))
+        return true
+      return false
+    }
+
+    const validateConfirmPassword=(confirmpassword,password)=>{
+      if(password===confirmpassword) return true;
+      return false;
+    }
+
+    
+
     return (
     <div>
     <img src={image}/>
@@ -57,11 +74,11 @@ export default function Registration() {
         </div>
         <div className="col-md-6">
           <label for="inputPassword4" className="form-label">Password</label>
-          <input type="password" className="form-control" value={password} onChange={(e)=>passwordchange(e.target.value)}></input><p className={fname.length<2?'invalid':'invalid-hide'}>*Invalid Password</p>
+          <input type="password" className="form-control" value={password} onChange={(e)=>passwordchange(e.target.value)}></input><p className={validatePassword(password)?'invalid-hide':'invalid'}>*Invalid Password</p>
         </div>
         <div className="col-md-6">
           <label for="inputEmail4" className="form-label">Confirm Password</label>
-          <input type="password" className="form-control" value={confirmpassword} onChange={(e)=>confirmpasswordchange(e.target.value)}></input><p className={fname.length<2?'invalid':'invalid-hide'}>*Password Does not match</p>
+          <input type="password" className="form-control" value={confirmpassword} onChange={(e)=>confirmpasswordchange(e.target.value)}></input><p className={validateConfirmPassword(confirmpassword,password)?'invalid-hide':'invalid'}>*Password Does not match</p>
         </div>
         <div className="col-12">
           <button type="submit" className="btn btn-primary" onClick={handleregistration}>Sign up</button>
