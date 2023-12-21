@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function Login() {
 
@@ -9,6 +10,30 @@ export default function Login() {
 
   const ProceedLogin=(e)=>{
     e.preventDefault()
+    if(validate())
+    {
+      console.log('procedd')
+      fetch("http://localhost:3000/user/"+email).then((res)=>{
+        return res.json()
+      }).then((resp)=>{
+        console.log(resp)
+      }).catch((err)=>{
+        toast.error('Login Failed due to : '+err.message)
+      })
+    }
+  }
+
+  const validate=()=>{
+    let result=true;
+    if(email==='' || email===null){
+      result=false
+      toast.warning('Please enter a Email Id')
+    }
+    if(password==='' || password===null){
+      result=false
+      toast.warning('Please Enter a valid Password')
+    }
+    return result
   }
 
   return (
@@ -22,11 +47,11 @@ export default function Login() {
             <div>
               <div>
                 <label>Email</label>
-                <input type='text' className='' value={email} onChange={emailUpdate}></input>
+                <input type='text' className='' value={email} onChange={e=>emailUpdate(e.target.value)}></input>
               </div>
               <div>
                 <label>Password</label>
-                <input type='password' className='' value={password} onChange={passwordUpdate}></input>
+                <input type='password' className='' value={password} onChange={e=>passwordUpdate(e.target.value)}></input>
               </div>
             </div>
             <div className=''>
