@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import image from "./background.jpg"
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 export default function Registration() {
   
     const [fname,fnamechange]=useState("")
@@ -9,6 +10,8 @@ export default function Registration() {
     const [email,emailchange]=useState("")
     const [password,passwordchange]=useState("")
     const [confirmpassword,confirmpasswordchange]=useState("")
+
+    const navigate=useNavigate();
 
     const handleregistration=(e)=>{
         e.preventDefault()
@@ -21,6 +24,7 @@ export default function Registration() {
             body:JSON.stringify(info)
         }).then((res)=>{
                toast.success('Registered Succesfully')
+               navigate('/Login')
         }).catch((err)=>{
                toast.error('failed:'+err.message)
         })
