@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 
 export default function Login() {
 
-  const [email,emailUpdate]=useState('')
+  const [id,idUpdate]=useState('')
   const [password,passwordUpdate]=useState('')
 
   const ProceedLogin=(e)=>{
@@ -13,7 +13,8 @@ export default function Login() {
     if(validate())
     {
       console.log('procedd')
-      fetch("http://localhost:3000/user/"+email).then((res)=>{
+      fetch("http://localhost:3000/user/"+id).then((res)=>{
+        console.log(res)
         return res.json()
       }).then((resp)=>{
         console.log(resp)
@@ -25,7 +26,7 @@ export default function Login() {
 
   const validate=()=>{
     let result=true;
-    if(email==='' || email===null){
+    if(id==='' || id===null){
       result=false
       toast.warning('Please enter a Email Id')
     }
@@ -47,7 +48,7 @@ export default function Login() {
             <div>
               <div>
                 <label>Email</label>
-                <input type='text' className='' value={email} onChange={e=>emailUpdate(e.target.value)}></input>
+                <input type='text' className='' value={id} onChange={e=>idUpdate(e.target.value)}></input>
               </div>
               <div>
                 <label>Password</label>
@@ -55,7 +56,7 @@ export default function Login() {
               </div>
             </div>
             <div className=''>
-              <button type='submit' className=''></button>
+              <button type='submit' className=''>Submit</button>
               <Link className="" to={'/registration'}>New User</Link>
             </div>
           </div>

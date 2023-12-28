@@ -1,58 +1,5 @@
 {
   "user": [
-    {
-      "fname": "Anshika",
-      "lname": "Gupta",
-      "phoneno": "9838083876",
-      "email": "anshika.oel@gmail.com",
-      "password": "avc",
-      "confirmpassword": "avc",
-      "id": 3
-    },
-    {
-      "fname": "Anshika",
-      "lname": "Gupta",
-      "phoneno": "9838083876",
-      "email": "anshika.oel@gmail.com",
-      "password": "aa",
-      "confirmpassword": "aa",
-      "id": 4
-    },
-    {
-      "fname": "Anshika",
-      "lname": "Gupta",
-      "phoneno": "9838083876",
-      "email": "anshika.oel@gmail.com",
-      "password": "aa",
-      "confirmpassword": "aa",
-      "id": 5
-    },
-    {
-      "fname": "",
-      "lname": "Gupta",
-      "phoneno": "9838083876",
-      "email": "anshika.oel@gmail.com",
-      "password": "aa",
-      "confirmpassword": "aa",
-      "id": 6
-    },
-    {
-      "fname": "aaaa",
-      "lname": "Gupta",
-      "phoneno": "09838083876",
-      "email": "anshika.oel@gmail.com",
-      "password": "aa",
-      "confirmpassword": "aa",
-      "id": 7
-    },
-    {
-      "fname": "aa",
-      "lname": "Gupta",
-      "phoneno": "09838083876",
-      "email": "anshika.oel@gmail.com",
-      "password": "aa",
-      "confirmpassword": "aa",
-      "id": 8
-    }
+    
   ]
 }

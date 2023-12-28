@@ -7,7 +7,7 @@ export default function Registration() {
     const [fname,fnamechange]=useState("")
     const [lname,lnamechange]=useState("")
     const [phoneno,phonenochange]=useState("")
-    const [email,emailchange]=useState("")
+    const [id,idchange]=useState("")
     const [password,passwordchange]=useState("")
     const [confirmpassword,confirmpasswordchange]=useState("")
 
@@ -15,7 +15,7 @@ export default function Registration() {
 
     const handleregistration=(e)=>{
         e.preventDefault()
-        let info={fname,lname,phoneno,email,password,confirmpassword}
+        let info={id,fname,lname,phoneno,password,confirmpassword}
         console.log(info)
 
         fetch("http://localhost:3000/user",{
@@ -30,8 +30,8 @@ export default function Registration() {
         })
     }
 
-    const validateEmail = (email) => {
-      return String(email)
+    const validateEmail = (id) => {
+      return String(id)
         .toLowerCase()
         .match(
           /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -42,7 +42,7 @@ export default function Registration() {
       var uppercase=/[A-Z]/g
       var lowerCase=/[a-z]/g
       var number=/[0-9]/g
-      var specialChar=/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/
+      var specialChar=/[!@#$%^&*()_+{}\]:;<>,.?~\\/-]/
         if(password.length>=8 && password.match(lowerCase) && password.match(uppercase) && password.match(number) && password.match(specialChar))
         return true
       return false
@@ -61,7 +61,7 @@ export default function Registration() {
 
     return (
     <div onLoad={hide()}>
-    <img src={image}/>
+    <img src={image} alt='background-image'/>
     <div id='d'>
       <form className="row g-3" >
         <div className="col-md-6">
@@ -74,11 +74,11 @@ export default function Registration() {
         </div>
         <div className="col-md-6">
           <label for="inputEmail4" className="form-label">Phone No.</label>
-          <input type="number" className="form-control" value={phoneno} onChange={(e)=>phonenochange(e.target.value)}></input><p className={phoneno.length!=10?'invalid':'invalid-hide'}>*Invalid Phone Number</p>
+          <input type="number" className="form-control" value={phoneno} onChange={(e)=>phonenochange(e.target.value)}></input><p className={phoneno.length!==10?'invalid':'invalid-hide'}>*Invalid Phone Number</p>
         </div>
         <div className="col-md-6">
           <label for="inputEmail4" className="form-label">Email</label>
-          <input type="email" className="form-control" value={email} onChange={(e)=>emailchange(e.target.value)}></input><p className={validateEmail(email)?'invalid-hide':'invalid'}>*Invalid Email</p>
+          <input type="email" className="form-control" value={id} onChange={(e)=>idchange(e.target.value)}></input><p className={validateEmail(id)?'invalid-hide':'invalid'}>*Invalid Email</p>
         </div>
         <div className="col-md-6">
           <label for="inputPassword4" className="form-label">Password</label>
