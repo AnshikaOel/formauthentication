@@ -53,10 +53,14 @@ export default function Registration() {
       return false;
     }
 
-    
+    const hide=()=>{
+      const a= document.getElementsByTagName('p')
+      for( let i=0;i<a.length;i++)
+      {a[i].style.display='none'}
+    }
 
     return (
-    <div>
+    <div onLoad={hide()}>
     <img src={image}/>
     <div id='d'>
       <form className="row g-3" >
