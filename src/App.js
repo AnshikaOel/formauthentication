@@ -7,7 +7,11 @@ import Login from './Login'
 import Registration from './Registration'
 import Post from './Post'
 import OTP from './OTP'
-
+import AccountCreated from './AccountCreated';
+import Feed from './Feed';
+import FullPostRead from './fullPostRead';
+import CreatePost from './CreatePost'
+ 
 function App() {
   return (
     <div className="App">
@@ -19,6 +23,10 @@ function App() {
           <Route path='/registration' element={<Registration/>}></Route>
           <Route path='/Post' element={<Post/>}></Route>
           <Route path='/OTP' element={<OTP/>}></Route>
+          <Route path='/AccountCreated' element={<AccountCreated/>}></Route>
+          <Route path='/Feed' element={<Feed/>}></Route>
+          <Route path='/fullPostRead' element={<FullPostRead/>}></Route>
+          <Route path='/CreatePost' element={<CreatePost/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
