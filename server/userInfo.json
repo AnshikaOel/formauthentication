@@ -1,3 +1,18 @@
 [
-  
+  {
+    "fname": "Anshika",
+    "lname": "Gupta",
+    "id": "22ansh@gmail.com",
+    "password": "22Aaaaaa-00",
+    "post_title": "this is title ",
+    "post_data": "this is post "
+  },
+  {
+    "fname": "Anshika",
+    "lname": "Gupta",
+    "id": "26bbbbb@gmail.com",
+    "password": "24Anusokhc-659",
+    "post_title": "this is title2",
+    "post_data": "this is post 2"
+  }
 ]
