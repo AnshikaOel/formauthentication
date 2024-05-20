@@ -7,7 +7,7 @@ export default function Home() {
       <img src={image} alt='background-image'/>
       <div id='d'>
       <div >
-      <h2>Start Posting ANONYMOUSLY where NO One is judging </h2><br></br>
+      <h2>Start Posting ANONYMOUSLY where NO One is judging you...</h2><br></br>
       <center><button className='btn btn-primary submitText'><Link to='/registration' className="linkStyle">Create an Account</Link></button></center>
       <br></br><br></br>
       <center><h3>Already have 2 Account</h3></center>
